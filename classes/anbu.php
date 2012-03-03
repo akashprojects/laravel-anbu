@@ -2,9 +2,9 @@
 
 class Anbu
 {
-	private static $_watchlist;
-	private static $_loglist;
-	private static $_sqllist;
+	private static $_watchlist = array();
+	private static $_loglist = array();
+	private static $_sqllist = array();
 
 	public static function render()
 	{
