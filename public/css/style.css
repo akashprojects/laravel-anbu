@@ -1,3 +1,11 @@
+/* 
+Anbu Styles
+Copyright 2012 Dayle Rees.
+MIT License <http://www.opensource.org/licenses/mit>
+
+*/
+
+/* the main anbu window */
 .anbu
 {
 	font-family:Helvetica, "Helvetica Neue", Arial, sans-serif;
@@ -10,6 +18,7 @@
 	z-index: 9999;
 }
 
+/* the tab strip and links */
 .anbu-tabs
 {
 	margin:0;
@@ -70,11 +79,13 @@
 	display:none;
 }
 
+/* the content area container */
 .anbu-window
 {
 	display:none;
 }
 
+/* the white bit :) */
 .anbu-content-area
 {
 	background-color:#fff;

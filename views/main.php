@@ -1,3 +1,4 @@
+<!-- ANBU - LARAVEL PROFILER -->
 <style type="text/css">
 	<?php echo File::get(Bundle::path('anbu').'public/css/style.css'); ?>
 </style>
@@ -68,3 +69,4 @@
 <script>
 	<?php echo File::get(Bundle::path('anbu').'public/js/script.js'); ?>
 </script>
+<!-- /ANBU - LARAVEL PROFILER -->

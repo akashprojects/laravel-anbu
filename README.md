@@ -8,7 +8,7 @@ Install using artisan for Laravel :
 
 	php artisan bundle:install anbu
 
-Now simply add anbu to your application/bundles.php with auto start enabled :
+Now simply add anbu to your `application/bundles.php` with auto start enabled :
 
 	return array('anbu' => array('auto' => true));
 
