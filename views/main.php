@@ -35,12 +35,12 @@
 			<div class="anbu-tab-pane anbu-sql">
 				<table>
 					<tr>
-						<th>Type</th>
-						<th>Message</th>
+						<th>Time</th>
+						<th>Query</th>
 					</tr>
 					<?php foreach($sql as $s) : ?>
 					<tr>
-						<td class="anbu-log-first"><?php echo $s[1]; ?></td>
+						<td class="anbu-log-first"><?php echo $s[1]; ?>s</td>
 						<td><pre><?php print_r($s[0]); ?></pre></td>
 					<?php endforeach; ?>
 					</tr>
