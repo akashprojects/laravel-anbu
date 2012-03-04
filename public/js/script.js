@@ -20,8 +20,11 @@ var anbu = {
 	// open the top section of anbu
 	open_window : function (link) 
 	{
-		$('.anbu-tab-pane').hide();
-		$('.'+link.attr('data-anbu-tab')).show();
+
+		$('.anbu-tab-pane:visible').fadeOut(200, function () {
+			
+		});
+		$('.'+link.attr('data-anbu-tab')).delay(220).fadeIn(300);
 		$('.anbu-tabs a').removeClass('anbu-active-tab');
 		link.addClass('anbu-active-tab');
 		$('.anbu-window').slideDown(300);
@@ -32,6 +35,7 @@ var anbu = {
 	// close the top section
 	close_window : function() 
 	{
+		$('.anbu-tab-pane').fadeOut(100);
 		$('.anbu-window').slideUp(300);
 		$('#anbu-close').fadeOut(300);
 		$('#anbu-zoom').fadeOut(300);
@@ -85,7 +89,17 @@ jQuery(document).ready(function () {
 	anbu.start();
 
 	// bind clicks
-	$('.anbu-tab').click(function () { anbu.open_window($(this)); });
+	$('.anbu-tab').click(function () {
+		if($('.'+$(this).attr('data-anbu-tab')).css('display') !== 'none')
+		{
+			anbu.close_window();
+		}
+		else
+		{
+			anbu.open_window($(this));
+		}
+		  
+	});
 	$('#anbu-close').click(function () { anbu.close_window(); });
 	$('#anbu-hide').click(function () { anbu.hide(); });
 	$('#anbu-show').click(function () { anbu.show(); });

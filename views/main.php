@@ -3,7 +3,7 @@
 <div class="anbu">
 	<div class="anbu-window">
 		<div class="anbu-content-area">
-			<div class="anbu-tab-pane anbu-watch">
+			<div class="anbu-tab-pane anbu-table anbu-watch">
 				<table>
 					<tr>
 						<th>Name</th>
@@ -11,13 +11,13 @@
 					</tr>
 					<?php foreach($watch as $name => $value) : ?>
 					<tr>
-						<td class="anbu-watch-first"><?php echo $name; ?></td>
+						<td class="anbu-table-first"><?php echo $name; ?></td>
 						<td><pre><?php print_r($value); ?></pre></td>
 					<?php endforeach; ?>
 					</tr>
 				</table>
 			</div>
-			<div class="anbu-tab-pane anbu-log">
+			<div class="anbu-tab-pane anbu-table anbu-log">
 				<table>
 					<tr>
 						<th>Type</th>
@@ -25,13 +25,13 @@
 					</tr>
 					<?php foreach($log as $l) : ?>
 					<tr>
-						<td class="anbu-log-first"><?php echo $l[0]; ?></td>
+						<td class="anbu-table-first"><?php echo $l[0]; ?></td>
 						<td><pre><?php print_r($l[1]); ?></pre></td>
 					<?php endforeach; ?>
 					</tr>
 				</table>
 			</div>
-			<div class="anbu-tab-pane anbu-sql">
+			<div class="anbu-tab-pane anbu-table anbu-sql">
 				<table>
 					<tr>
 						<th>Time</th>
@@ -39,7 +39,7 @@
 					</tr>
 					<?php foreach($sql as $s) : ?>
 					<tr>
-						<td class="anbu-log-first"><?php echo $s[1]; ?>s</td>
+						<td class="anbu-table-first"><?php echo $s[1]; ?>s</td>
 						<td><pre><?php print_r($s[0]); ?></pre></td>
 					<?php endforeach; ?>
 					</tr>

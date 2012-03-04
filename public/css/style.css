@@ -40,6 +40,23 @@ MIT License <http://www.opensource.org/licenses/mit>
 	text-decoration:none;
 	font-size:0.8em;
 	padding: 0.7em 2em 0.6em 2em;
+
+	-webkit-transition-property:color, background-color;  
+	-webkit-transition-duration: 0.7s, 0.2s;  
+	-webkit-transition-timing-function: ease-in, ease-in;
+	-moz-transition-property:color, background-color;  
+	-moz-transition-duration: 0.7s, 0.2s;   
+	-moz-transition-timing-function: ease-in, ease-in;
+	-ms-transition-property:color, background-color;  
+	-ms-transition-duration: 0.7s, 0.2s;   
+	-ms-transition-timing-function: ease-in, ease-in;	
+	-o-transition-property:color, background-color;  
+	-o-transition-duration: 0.7s, 0.2s;    
+	-o-transition-timing-function: ease-in, ease-in;
+	transition-property:color, background-color;  
+	transition-duration: 0.7s, 0.2s;    
+	transition-timing-function: ease-in, ease-in;	
+
 }
 
 #anbu-closed-tabs a, #anbu-closed-tabs a:visited
@@ -95,9 +112,10 @@ MIT License <http://www.opensource.org/licenses/mit>
 	overflow-y:auto;
 }
 
-/* WATCH PAGE */
 
-.anbu-watch table
+/* TABLES ON PAGE */
+
+.anbu-table table
 {
 	margin:0;
 	padding:0;
@@ -107,133 +125,40 @@ MIT License <http://www.opensource.org/licenses/mit>
 	width:100%;
 }
 
-.anbu-watch tr
+.anbu-table tr
 {
 	border-bottom:1px solid #ccc;
 }
 
-.anbu-watch tr:first-child
+.anbu-table tr:first-child
 {
 	border:0;
 }
 
-.anbu-watch th
+.anbu-table th
 {
 	background-color:#555;
 	color:#fff;
 	text-transform:uppercase;
 }
 
-.anbu-watch th, .anbu-watch td
+.anbu-table th, .anbu-table td
 {
 	text-align:left;
 	padding:0.4em 1em;
 	margin:0;
 }
 
-.anbu-watch td
+.anbu-table td
 {
 	vertical-align:top;
 }
 
-.anbu-watch-first
+.anbu-table-first
 {
 	background-color:#eee;
 	border-right:1px solid #ccc;
-}
-
-/* LOG PAGE */
-
-.anbu-log table
-{
-	margin:0;
-	padding:0;
-	font-size:0.9em;
-	border:0;
-	border-collapse:collapse;
-	width:100%;
-}
-
-.anbu-log tr
-{
-	border-bottom:1px solid #ccc;
-}
-
-.anbu-log tr:first-child
-{
-	border:0;
-}
-
-.anbu-log th
-{
-	background-color:#555;
-	color:#fff;
-	text-transform:uppercase;
-}
-
-.anbu-log th, .anbu-log td
-{
-	text-align:left;
-	padding:0.4em 1em;
-	margin:0;
-}
-
-.anbu-log td
-{
-	vertical-align:top;
-}
-
-.anbu-log-first
-{
-	background-color:#eee;
-	border-right:1px solid #ccc;
-}
-
-/* SQL PAGE */
-
-.anbu-sql table
-{
-	margin:0;
-	padding:0;
-	font-size:0.9em;
-	border:0;
-	border-collapse:collapse;
-	width:100%;
-}
-
-.anbu-sql tr
-{
-	border-bottom:1px solid #ccc;
-}
-
-.anbu-sql tr:first-child
-{
-	border:0;
-}
-
-.anbu-sql th
-{
-	background-color:#555;
-	color:#fff;
-	text-transform:uppercase;
-}
-
-.anbu-sql th, .anbu-sql td
-{
-	text-align:left;
-	padding:0.4em 1em;
-	margin:0;
-}
-
-.anbu-sql td
-{
-	vertical-align:top;
-}
-
-.anbu-sql-first
-{
-	background-color:#eee;
-	border-right:1px solid #ccc;
+	width:10%;
 }
 
 span.anbu-count
