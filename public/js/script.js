@@ -1,15 +1,17 @@
-// Anbu Profiler
-// Copyright 2012 Dayle Rees.
-// MIT License <http://www.opensource.org/licenses/mit>
+/* 
+Anbu Profiler
+Copyright 2012 Dayle Rees.
+MIT License <http:/*www.opensource.org/licenses/mit>
 
-// I apologize for my terrible JavaScript skills in advance!
+I apologize for my terrible JavaScript skills in advance!
+*/
 
 var anbu = {
 
-	// are we in full screen mode?
+	/* are we in full screen mode? */
 	full : false,
 	
-	// just some startup routines
+	/* just some startup routines */
 	start : function ()
 	{
 		$('#anbu-close').hide();
@@ -17,7 +19,7 @@ var anbu = {
 		$('.anbu-tab-pane').hide();
 	},
 
-	// open the top section of anbu
+	/* open the top section of anbu */
 	open_window : function (link) 
 	{
 
@@ -32,7 +34,7 @@ var anbu = {
 		$('#anbu-zoom').fadeIn(300);
 	},
 
-	// close the top section
+	/* close the top section */
 	close_window : function() 
 	{
 		$('.anbu-tab-pane').fadeOut(100);
@@ -42,7 +44,7 @@ var anbu = {
 		$('.anbu-tabs a').removeClass('anbu-active-tab');
 	},
 
-	// show the bar if its compacted
+	/* show the bar if its compacted */
 	show : function ()
 	{
 			$('#anbu-closed-tabs').fadeOut(600, function () {
@@ -51,7 +53,7 @@ var anbu = {
 			$('.anbu').animate({width: '100%'}, 700);	
 	},
 
-	// compact the bar
+	/* compact the bar */
 	hide : function ()
 	{
 		$('.anbu-window').slideUp(400, function () {
@@ -64,7 +66,7 @@ var anbu = {
 
 	},
 
-	// toggle fullscreen mode
+	/* toggle fullscreen mode */
 	zoom : function () 
 	{
 		if(anbu.full)
@@ -85,10 +87,10 @@ var anbu = {
 
 
 jQuery(document).ready(function () {
-	// kick it off
+	/* kick it off */
 	anbu.start();
 
-	// bind clicks
+	/* bind clicks */
 	$('.anbu-tab').click(function () {
 		if($('.'+$(this).attr('data-anbu-tab')).css('display') !== 'none')
 		{

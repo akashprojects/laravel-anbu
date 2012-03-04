@@ -31,6 +31,14 @@ class Anbu
 	private static $_sqllist = array();
 
 	/**
+	 * A switch to quickly disable the resource cache
+	 * for testing purposes.
+	 * 
+	 * @var bool
+	 */
+	private static $_debug = false;
+
+	/**
 	 * Render Anbu, assign view params and echo out the main view.
 	 * 
 	 * @return void
@@ -103,7 +111,7 @@ class Anbu
 	private static function _get_css()
 	{
 		// cache the css, to avoid reprocessing a lot
-		if(! Cache::has('anbu-css'))
+		if((! Cache::has('anbu-css')) or static::$_debug)
 		{
 			// by pulling in the file, we can dump it in the view, no publish
 			$css = File::get(Bundle::path('anbu').'public/css/style.css');
@@ -129,12 +137,19 @@ class Anbu
 	private static function _get_js()
 	{
 		// cache the js, to avoid reprocessing a lot
-		if(! Cache::has('anbu-js'))
+		if((! Cache::has('anbu-js')) or static::$_debug)
 		{
-			// by pulling in the file, we can dump it in the view, no publish
-			$js = File::get(Bundle::path('anbu').'public/js/script.js');
-
-			/* hopefully find a minify script somewhere */
+			// couldnt find a way of minifying on the fly, this will do for now
+			if(File::exists(Bundle::path('anbu').'public/js/script.min.js'))
+			{
+				die('hit');
+				// by pulling in the file, we can dump it in the view, no publish
+				$js = File::get(Bundle::path('anbu').'public/js/script.min.js');
+			}
+			else
+			{
+				$js = File::get(Bundle::path('anbu').'public/js/script.js');
+			}
 
 			Cache::put('anbu-js', $js, 10);
 		}

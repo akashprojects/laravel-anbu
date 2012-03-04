@@ -125,6 +125,11 @@ MIT License <http://www.opensource.org/licenses/mit>
 	width:100%;
 }
 
+.anbu-table pre
+{
+	margin:0;
+}
+
 .anbu-table tr
 {
 	border-bottom:1px solid #ccc;
@@ -176,4 +181,16 @@ span.anbu-count
  
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 
+}
+
+.anbu-empty
+{
+	display:block;
+	background-color:#eee;
+	padding:1em;
+	text-align:center;
+	font-style:italic;
+	color:#aaa;
+	margin:1em;
+	text-shadow:1px 1px 0px #fff;
 }

@@ -4,6 +4,7 @@
 	<div class="anbu-window">
 		<div class="anbu-content-area">
 			<div class="anbu-tab-pane anbu-table anbu-watch">
+				<?php if (count($watch)) : ?>
 				<table>
 					<tr>
 						<th>Name</th>
@@ -16,8 +17,12 @@
 					<?php endforeach; ?>
 					</tr>
 				</table>
+				<?php else : ?>
+					<span class="anbu-empty">There are no objects being watched.</span>
+				<?php endif; ?>				
 			</div>
 			<div class="anbu-tab-pane anbu-table anbu-log">
+				<?php if (count($log)) : ?>
 				<table>
 					<tr>
 						<th>Type</th>
@@ -26,12 +31,16 @@
 					<?php foreach($log as $l) : ?>
 					<tr>
 						<td class="anbu-table-first"><?php echo $l[0]; ?></td>
-						<td><pre><?php print_r($l[1]); ?></pre></td>
+						<td><?php print_r($l[1]); ?></td>
 					<?php endforeach; ?>
 					</tr>
 				</table>
+				<?php else : ?>
+					<span class="anbu-empty">There are no log entries.</span>
+				<?php endif; ?>				
 			</div>
 			<div class="anbu-tab-pane anbu-table anbu-sql">
+				<?php if (count($sql)) : ?>
 				<table>
 					<tr>
 						<th>Time</th>
@@ -44,6 +53,9 @@
 					<?php endforeach; ?>
 					</tr>
 				</table>
+				<?php else : ?>
+					<span class="anbu-empty">There have been no SQL queries executed.</span>
+				<?php endif; ?>
 			</div>								
 
 		</div>
@@ -64,7 +76,5 @@
 	</ul>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>
-	<?php echo $js ?>
-</script>
+<script><?php echo $js ?></script>
 <!-- /ANBU - LARAVEL PROFILER -->
