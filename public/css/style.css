@@ -235,3 +235,20 @@ MIT License <http://www.opensource.org/licenses/mit>
 	background-color:#eee;
 	border-right:1px solid #ccc;
 }
+
+span.anbu-count
+{
+	margin-left:0.5em;
+	background-color:#555;
+	padding:0.1em 0.5em 0.085em 0.5em;
+	color:#eee;
+	text-shadow:0 0 4px #000;
+
+  -webkit-border-radius: 1px;
+     -moz-border-radius: 1px;
+          border-radius: 1px;
+
+ 
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+}

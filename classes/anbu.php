@@ -40,7 +40,9 @@ class Anbu
 		$data = array(
 			'watch' => static::$_watchlist,
 			'log'	=> static::$_loglist,
-			'sql'	=> static::$_sqllist
+			'sql'	=> static::$_sqllist,
+			'css'	=> static::_get_css(),
+			'js'	=> static::_get_js()
 		);
 		echo View::make('anbu::main', $data)->render();
 	}
@@ -91,5 +93,53 @@ class Anbu
 		}
 
 		static::$_sqllist[] = array($sql, $time);
+	}
+
+	/**
+	 * Return a minified, cached version of the CSS.
+	 * 
+	 * @return void
+	 */
+	private static function _get_css()
+	{
+		// cache the css, to avoid reprocessing a lot
+		if(! Cache::has('anbu-css'))
+		{
+			// by pulling in the file, we can dump it in the view, no publish
+			$css = File::get(Bundle::path('anbu').'public/css/style.css');
+
+			// remove comments
+			$css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+
+			// strip all spacing
+			$css = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $css);
+
+			Cache::put('anbu-css', $css, 10);
+		}
+
+
+		return Cache::get('anbu-css');	
+	}
+
+	/**
+	 * Return a minified, cached version of the JS.
+	 * 
+	 * @return void
+	 */
+	private static function _get_js()
+	{
+		// cache the js, to avoid reprocessing a lot
+		if(! Cache::has('anbu-js'))
+		{
+			// by pulling in the file, we can dump it in the view, no publish
+			$js = File::get(Bundle::path('anbu').'public/js/script.js');
+
+			/* hopefully find a minify script somewhere */
+
+			Cache::put('anbu-js', $js, 10);
+		}
+
+
+		return Cache::get('anbu-js');			
 	}
 }

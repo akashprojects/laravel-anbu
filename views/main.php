@@ -1,7 +1,5 @@
 <!-- ANBU - LARAVEL PROFILER -->
-<style type="text/css">
-	<?php echo File::get(Bundle::path('anbu').'public/css/style.css'); ?>
-</style>
+<style type="text/css"><?php echo $css ?></style>
 <div class="anbu">
 	<div class="anbu-window">
 		<div class="anbu-content-area">
@@ -51,9 +49,9 @@
 		</div>
 	</div>
 	<ul id="anbu-open-tabs" class="anbu-tabs">
-		<li><a data-anbu-tab="anbu-log" class="anbu-tab" href="#">Log</a></li>
-		<li><a data-anbu-tab="anbu-watch" class="anbu-tab" href="#">Watch</a></li>
-		<li><a data-anbu-tab="anbu-sql" class="anbu-tab" href="#">SQL</a></li>
+		<li><a data-anbu-tab="anbu-log" class="anbu-tab" href="#">Log <span class="anbu-count"><?php echo count($log); ?></span></a></li>
+		<li><a data-anbu-tab="anbu-watch" class="anbu-tab" href="#">Watch <span class="anbu-count"><?php echo count($watch); ?></span></a></li>
+		<li><a data-anbu-tab="anbu-sql" class="anbu-tab" href="#">SQL <span class="anbu-count"><?php echo count($sql); ?></span></a></li>
 
 	
 		<li class="anbu-tab-right"><a id="anbu-hide" href="#">&#8614;</a></li>
@@ -67,6 +65,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script>
-	<?php echo File::get(Bundle::path('anbu').'public/js/script.js'); ?>
+	<?php echo $js ?>
 </script>
 <!-- /ANBU - LARAVEL PROFILER -->
