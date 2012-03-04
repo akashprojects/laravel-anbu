@@ -48,7 +48,7 @@
 					</tr>
 					<?php foreach($sql as $s) : ?>
 					<tr>
-						<td class="anbu-table-first"><?php echo $s[1]; ?>s</td>
+						<td class="anbu-table-first"><?php echo $s[1]; ?>ms</td>
 						<td><pre><?php print_r($s[0]); ?></pre></td>
 					<?php endforeach; ?>
 					</tr>

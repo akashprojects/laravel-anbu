@@ -2,7 +2,6 @@
 Anbu Styles
 Copyright 2012 Dayle Rees.
 MIT License <http://www.opensource.org/licenses/mit>
-
 */
 
 /* the main anbu window */
@@ -102,6 +101,7 @@ MIT License <http://www.opensource.org/licenses/mit>
 	display:none;
 }
 
+
 /* the white bit :) */
 .anbu-content-area
 {
@@ -186,11 +186,20 @@ span.anbu-count
 .anbu-empty
 {
 	display:block;
-	background-color:#eee;
 	padding:1em;
 	text-align:center;
 	font-style:italic;
-	color:#aaa;
+	color:#ccc;
 	margin:1em;
-	text-shadow:1px 1px 0px #fff;
+}
+
+.anbu pre
+{
+	 overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+ white-space: pre-wrap; /* css-3 */
+ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+ white-space: -pre-wrap; /* Opera 4-6 */
+ white-space: -o-pre-wrap; /* Opera 7 */
+ /* width: 99%; */
+ word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
