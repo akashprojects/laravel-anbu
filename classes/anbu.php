@@ -44,6 +44,9 @@ class Anbu
 	 */
 	public static function render()
 	{
+		$run_time = (microtime(true) - LARAVEL_START) * 1000;
+		static::log('info', 'Page rendered in '.number_format($run_time, 1). 'ms');
+		
 		$data = array(
 			'watch' => static::$_watchlist,
 			'log'	=> static::$_loglist,
