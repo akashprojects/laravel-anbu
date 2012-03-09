@@ -1,4 +1,4 @@
-/* 
+/*
 Anbu Profiler
 Copyright 2012 Dayle Rees.
 MIT License <http:/*www.opensource.org/licenses/mit>
@@ -22,7 +22,7 @@ var anbu = {
 		tab_pane			: $('.anbu-tab-pane'),
 		hidden_tab_pane 	: $('.anbu-tab-pane:visible'),
 		tab 				: $('.anbu-tab'),
-		tabs 				: $('.anbu-tabs'),		
+		tabs 				: $('.anbu-tabs'),
 		tab_links 			: $('.anbu-tabs a'),
 		window 				: $('.anbu-window'),
 		closed_tabs			: $('#anbu-closed-tabs'),
@@ -48,7 +48,7 @@ var anbu = {
 
 	start : function ()
 	{
-		// hide initial elements 
+		// hide initial elements
 
 		anbu.el.close.hide();
 		anbu.el.zoom.hide();
@@ -83,7 +83,7 @@ var anbu = {
 	// -------------------------------------------------------------
 	// Animate open the top window to the appropriate tab.
 
-	open_window : function (tab) 
+	open_window : function (tab)
 	{
 		// can't directly assign this line, but it works
 		$('.anbu-tab-pane:visible').fadeOut(200);
@@ -102,7 +102,7 @@ var anbu = {
 	// -------------------------------------------------------------
 	// Animate closed the top window hiding all tabs.
 
-	close_window : function() 
+	close_window : function()
 	{
 		anbu.el.tab_pane.fadeOut(100);
 		anbu.el.window.slideUp(300);
@@ -123,7 +123,7 @@ var anbu = {
 			anbu.el.closed_tabs.fadeOut(600, function () {
 				anbu.el.open_tabs.fadeIn(200);
 			})
-			anbu.el.main.animate({width: '100%'}, 700);	
+			anbu.el.main.animate({width: '100%'}, 700);
 	},
 
 	// HIDE()
@@ -138,7 +138,7 @@ var anbu = {
 			anbu.el.open_tabs.fadeOut(200, function () {
 				anbu.el.closed_tabs.fadeIn(200);
 			})
-			anbu.el.main.animate({width: anbu.mini_button_width}, 700);			
+			anbu.el.main.animate({width: anbu.mini_button_width}, 700);
 		});
 
 	},
@@ -147,7 +147,7 @@ var anbu = {
 	// -------------------------------------------------------------
 	// Toggle the zoomed mode of the top window.
 
-	zoom : function () 
+	zoom : function ()
 	{
 		if(anbu.isZoomed)
 		{
@@ -159,7 +159,7 @@ var anbu = {
 			// the 6px is padding on the top of the window
 			height = ($(window).height() - anbu.el.tabs.height() - 6) + 'px';
 			anbu.isZoomed = true;
-		}		
+		}
 
 		anbu.el.content_area.animate({height: height}, 700);
 	}

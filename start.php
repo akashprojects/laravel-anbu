@@ -5,12 +5,8 @@ Autoloader::directories(array(
 	Bundle::path('anbu').'classes'
 ));
 
-// listen for laravel logs, pass them to anbu
-Event::listen('laravel.log', function ($type, $message) {
-	Anbu::log($type, $message);
-});
+// pass laravel log entries to anbu
+Event::listen('laravel.log', 'Anbu::log');
 
-// listen to sql queries, pass them to anbu
-Event::listen('laravel.query', function ($sql, $bindings, $time) {
-	Anbu::sql($sql, $bindings, $time);
-});
+// pass executed SQL queries to anbu
+Event::listen('laravel.query', 'Anbu::sql');

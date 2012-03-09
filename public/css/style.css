@@ -1,4 +1,4 @@
-/* 
+/*
 Anbu Styles
 Copyright 2012 Dayle Rees.
 MIT License <http://www.opensource.org/licenses/mit>
@@ -7,22 +7,22 @@ MIT License <http://www.opensource.org/licenses/mit>
 /* the main anbu window */
 .anbu
 {
-	font-family:Helvetica, "Helvetica Neue", Arial, sans-serif;
-	font-size:14px;
-	background-color:#222;
-	position:fixed;
-	bottom:0;
-	right:0;
+	font-family:Helvetica, "Helvetica Neue", Arial, sans-serif !important;
+	font-size:14px !important;
+	background-color:#222 !important;
+	position:fixed !important;
+	bottom:0 !important;
+	right:0 !important;
 	width:100%;
-	z-index: 9999;
+	z-index: 9999 !important;
 }
 
 /* the tab strip and links */
 .anbu-tabs
 {
-	margin:0;
-	padding:0;
-	overflow:hidden;
+	margin:0 !important;
+	padding:0 !important;
+	overflow:hidden !important;
 }
 
 .anbu-tabs li
@@ -32,62 +32,67 @@ MIT License <http://www.opensource.org/licenses/mit>
 
 .anbu-tabs a, .anbu-tabs a:visited
 {
-	color:#aaa;
-	text-transform:uppercase;
-	font-weight:bold;
+	color:#aaa !important;
+	text-transform:uppercase !important;
+	font-weight:bold !important;
 	display:inline-block;
-	text-decoration:none;
-	font-size:0.8em;
-	padding: 0.7em 2em 0.6em 2em;
+	text-decoration:none !important;
+	font-size:0.8em !important;
+	padding: 0.8em 2em 0.7em 2em !important;
 
-	-webkit-transition-property:color, background-color;  
-	-webkit-transition-duration: 0.7s, 0.2s;  
+	-webkit-transition-property:color, background-color;
+	-webkit-transition-duration: 0.7s, 0.2s;
 	-webkit-transition-timing-function: ease-in, ease-in;
-	-moz-transition-property:color, background-color;  
-	-moz-transition-duration: 0.7s, 0.2s;   
+	-moz-transition-property:color, background-color;
+	-moz-transition-duration: 0.7s, 0.2s;
 	-moz-transition-timing-function: ease-in, ease-in;
-	-ms-transition-property:color, background-color;  
-	-ms-transition-duration: 0.7s, 0.2s;   
-	-ms-transition-timing-function: ease-in, ease-in;	
-	-o-transition-property:color, background-color;  
-	-o-transition-duration: 0.7s, 0.2s;    
+	-ms-transition-property:color, background-color;
+	-ms-transition-duration: 0.7s, 0.2s;
+	-ms-transition-timing-function: ease-in, ease-in;
+	-o-transition-property:color, background-color;
+	-o-transition-duration: 0.7s, 0.2s;
 	-o-transition-timing-function: ease-in, ease-in;
-	transition-property:color, background-color;  
-	transition-duration: 0.7s, 0.2s;    
-	transition-timing-function: ease-in, ease-in;	
+	transition-property:color, background-color;
+	transition-duration: 0.7s, 0.2s;
+	transition-timing-function: ease-in, ease-in;
 
 }
 
 #anbu-closed-tabs a, #anbu-closed-tabs a:visited
 {
-	padding: 0.7em 1.2em 0.6em 1.2em;	
+	padding: 0.85em 1.2em 0.85em 1.2em !important;
 }
 
 .anbu-tabs a:hover
 {
-	background-color:#333;
-	color:#fff;
+	background-color:#333 !important;
+	color:#fff !important;
 }
 
 .anbu-tabs a.anbu-active-tab
 {
-	color:#fff;
-	background-color:#333;
+	color:#fff !important;
+	background-color:#333 !important;
 }
 
 .anbu a:focus
 {
-	outline:none;
+	outline:none !important;
 }
 
 .anbu-tabs a:active
 {
-	background-color:#111;	
+	background-color:#111 !important;
 }
 
 .anbu-tabs li.anbu-tab-right
 {
-	float:right;
+	float:right !important;
+}
+
+.anbu-tabs li.anbu-tab-right a, .anbu-tabs li.anbu-tab-right a:visited
+{
+	padding: 0.86em 2em 0.7em 2em !important;
 }
 
 #anbu-closed-tabs
@@ -105,11 +110,19 @@ MIT License <http://www.opensource.org/licenses/mit>
 /* the white bit :) */
 .anbu-content-area
 {
-	background-color:#fff;
+
+  background-color: #fff !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eeeeee), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #eeeeee, #ffffff);
+  background-image:    -moz-linear-gradient(top, #eeeeee, #ffffff);
+  background-image:     -ms-linear-gradient(top, #eeeeee, #ffffff);
+  background-image:      -o-linear-gradient(top, #eeeeee, #ffffff);
+  background-image:         linear-gradient(to bottom, #eeeeee, #ffffff);
+
 	height:14em;
-	margin-top:6px;
-	overflow-x:hidden;
-	overflow-y:auto;
+	margin-top:6px !important;
+	overflow-x:hidden !important;
+	overflow-y:auto !important;
 }
 
 
@@ -117,80 +130,83 @@ MIT License <http://www.opensource.org/licenses/mit>
 
 .anbu-table table
 {
-	margin:0;
-	padding:0;
-	font-size:0.9em;
-	border:0;
-	border-collapse:collapse;
-	width:100%;
+	margin:0 !important;
+	padding:0 !important;
+	font-size:0.9em !important;
+	border:0 !important;
+	border-collapse:collapse !important;
+	width:100% !important;
+	background-color:#fff !important;
 }
 
 .anbu-table pre
 {
-	margin:0;
+	margin:0 !important;
 }
 
 .anbu-table tr
 {
-	border-bottom:1px solid #ccc;
+	border-bottom:1px solid #ccc !important;
 }
 
 .anbu-table tr:first-child
 {
-	border:0;
+	border:0 !important;
 }
 
 .anbu-table th
 {
-	background-color:#555;
-	color:#fff;
-	text-transform:uppercase;
+	background-color:#555 !important;
+	color:#fff !important;
+	text-transform:uppercase !important;
 }
 
 .anbu-table th, .anbu-table td
 {
-	text-align:left;
-	padding:0.4em 1em;
-	margin:0;
+	text-align:left !important;
+	padding:0.4em 1em !important;
+	margin:0 !important;
 }
 
 .anbu-table td
 {
-	vertical-align:top;
+	vertical-align:top !important;
 }
 
 .anbu-table-first
 {
-	background-color:#eee;
-	border-right:1px solid #ccc;
-	width:10%;
+	background-color:#eee !important;
+	border-right:1px solid #ccc !important;
+	width:10% !important;
 }
 
 span.anbu-count
 {
-	margin-left:0.5em;
-	background-color:#555;
-	padding:0.1em 0.5em 0.085em 0.5em;
-	color:#eee;
-	text-shadow:0 0 4px #000;
+	margin-left:0.5em !important;
+	background-color:#555 !important;
+	display:inline-block !important;
+	padding:0.1em 0.5em 0.2em 0.5em !important;
+	color:#eee !important;
+	text-shadow:0 0 4px #000 !important;
 
   -webkit-border-radius: 1px;
      -moz-border-radius: 1px;
           border-radius: 1px;
 
- 
+
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 
 }
 
 .anbu-empty
 {
-	display:block;
-	padding:1em;
-	text-align:center;
-	font-style:italic;
-	color:#ccc;
-	margin:1em;
+	display:block !important;
+	padding:1em !important;
+	text-align:center !important;
+	font-style:italic !important;
+	color:#ccc !important;
+	margin:1em !important;
+	text-shadow:0 1px 0px #fff !important;
 }
 
 .anbu pre

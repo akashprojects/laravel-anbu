@@ -19,7 +19,7 @@
 				</table>
 				<?php else : ?>
 					<span class="anbu-empty">There are no objects being watched.</span>
-				<?php endif; ?>				
+				<?php endif; ?>
 			</div>
 			<div class="anbu-tab-pane anbu-table anbu-log">
 				<?php if (count($log)) : ?>
@@ -37,7 +37,7 @@
 				</table>
 				<?php else : ?>
 					<span class="anbu-empty">There are no log entries.</span>
-				<?php endif; ?>				
+				<?php endif; ?>
 			</div>
 			<div class="anbu-tab-pane anbu-table anbu-sql">
 				<?php if (count($sql)) : ?>
@@ -56,7 +56,7 @@
 				<?php else : ?>
 					<span class="anbu-empty">There have been no SQL queries executed.</span>
 				<?php endif; ?>
-			</div>								
+			</div>
 
 		</div>
 	</div>
@@ -65,16 +65,16 @@
 		<li><a data-anbu-tab="anbu-watch" class="anbu-tab" href="#">Watch <span class="anbu-count"><?php echo count($watch); ?></span></a></li>
 		<li><a data-anbu-tab="anbu-sql" class="anbu-tab" href="#">SQL <span class="anbu-count"><?php echo count($sql); ?></span></a></li>
 
-	
+
 		<li class="anbu-tab-right"><a id="anbu-hide" href="#">&#8614;</a></li>
-		<li class="anbu-tab-right"><a id="anbu-close" href="#">&times;</a></li>		
-		<li class="anbu-tab-right"><a id="anbu-zoom" href="#">&#8645;</a></li>			
+		<li class="anbu-tab-right"><a id="anbu-close" href="#">&times;</a></li>
+		<li class="anbu-tab-right"><a id="anbu-zoom" href="#">&#8645;</a></li>
 	</ul>
 
 	<ul id="anbu-closed-tabs" class="anbu-tabs">
 		<li><a id="anbu-show" href="#">&#8612;</a></li>
 	</ul>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<?php if($include_jq) : ?><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script><?php endif; ?>
 <script><?php echo $js ?></script>
 <!-- /ANBU - LARAVEL PROFILER -->

@@ -2,7 +2,7 @@
 
 /**
  * Anbu, the light weight profiler for Laravel.
- * 
+ *
  * @author Dayle Rees <me@daylerees.com>
  * @copyright 2012 Dayle Rees <me@daylerees.com>
  * @license MIT License <http://www.opensource.org/licenses/mit>
@@ -20,26 +20,26 @@ class Anbu
 	 * Contains the logs written by Laravel.
 	 *
 	 * @var array
-	 */	
+	 */
 	private static $_loglist = array();
 
 	/**
 	 * A list of SQL queries exectued.
 	 *
 	 * @var array
-	 */	
+	 */
 	private static $_sqllist = array();
 
 	/**
 	 * Show full resources instead of minified ones.
-	 * 
+	 *
 	 * @var bool
 	 */
 	private static $_debug = false;
 
 	/**
 	 * Render Anbu, assign view params and echo out the main view.
-	 * 
+	 *
 	 * @return void
 	 */
 	public static function render()
@@ -48,30 +48,45 @@ class Anbu
 			'watch' => static::$_watchlist,
 			'log'	=> static::$_loglist,
 			'sql'	=> static::$_sqllist,
-			'css'	=> static::_get_css(),
-			'js'	=> static::_get_js()
+			'css'	=> File::get(Bundle::path('anbu').'public/css/style.min.css'),
+			'js'	=> File::get(Bundle::path('anbu').'public/js/script.min.js'),
+			'include_jq'	=> Config::get('anbu::display.include_jquery')
 		);
 
 		echo View::make('anbu::main', $data)->render();
 	}
 
 	/**
-	 * Watch an object (assigned by reference) to show within Anbu
-	 * 
+	 * Watch an object to show within Anbu
+	 *
 	 * @param string A friendly name for the object.
 	 * @param mixed The object itself.
-	 * @param bool This switch will later be used to pass by reference or not.
 	 * @return void
 	 */
-	public static function watch($name, &$object, $allow_change = true)
+	public static function watch($name, $object)
 	{
 		// pass the actual object in
-		static::$_watchlist[$name] =& $object; 
+		static::$_watchlist[$name] = $object;
+	}
+
+	/**
+	 * Watch an object to show within Anbu, but keep
+	 * watching its value after changes.
+	 * (pass by reference)
+	 *
+	 * @param string A friendly name for the object.
+	 * @param mixed The object itself.
+	 * @return void
+	 */
+	public static function spy($name, &$object)
+	{
+		// pass the actual object in
+		static::$_watchlist[$name] =& $object;
 	}
 
 	/**
 	 * Add a log entry to the Anbu array.
-	 * 
+	 *
 	 * @param string The type of log entry.
 	 * @param string The message.
 	 * @return void
@@ -83,7 +98,7 @@ class Anbu
 
 	/**
 	 * Add a performed SQL query to Anbu.
-	 * 
+	 *
 	 * @param string the SQL query performed.
 	 * @param array The bindings for the query.
 	 * @param float The time taken to run the query.
@@ -101,43 +116,5 @@ class Anbu
 		}
 
 		static::$_sqllist[] = array($sql, $time);
-	}
-
-	/**
-	 * Return a minified, or normal version of the CSS.
-	 * 
-	 * @return void
-	 */
-	private static function _get_css()
-	{
-		if (static::$_debug)
-		{
-			$css = File::get(Bundle::path('anbu').'public/css/style.css');
-		}
-		else
-		{
-			$css = File::get(Bundle::path('anbu').'public/css/style.min.css');
-		}
-
-		return $css;
-	}
-
-	/**
-	 * Return a minified, or normal version of the JS.
-	 * 
-	 * @return void
-	 */
-	private static function _get_js()
-	{
-		if (static::$_debug)
-		{
-			$js = File::get(Bundle::path('anbu').'public/js/script.js');
-		}
-		else
-		{
-			$js = File::get(Bundle::path('anbu').'public/js/script.min.js');
-		}
-
-		return $js;			
 	}
 }
