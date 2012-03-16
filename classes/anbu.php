@@ -44,13 +44,18 @@ class Anbu
 	 */
 	public static function render()
 	{
+		$run_time = (microtime(true) - LARAVEL_START);
+		$memory   = (memory_get_usage() - LARAVEL_MEMORY);
+
 		$data = array(
-			'watch' => static::$_watchlist,
-			'log'	=> static::$_loglist,
-			'sql'	=> static::$_sqllist,
-			'css'	=> File::get(Bundle::path('anbu').'public/css/style.min.css'),
-			'js'	=> File::get(Bundle::path('anbu').'public/js/script.min.js'),
-			'include_jq'	=> Config::get('anbu::display.include_jquery')
+			'watch'      => static::$_watchlist,
+			'log'        => static::$_loglist,
+			'sql'        => static::$_sqllist,
+			'memory'     => number_format($memory / 1024, 2).' kB',
+			'runtime'    => number_format($run_time, 4).' s',
+			'css'        => File::get(Bundle::path('anbu').'public/css/style.min.css'),
+			'js'         => File::get(Bundle::path('anbu').'public/js/script.min.js'),
+			'include_jq' => Config::get('anbu::display.include_jquery')
 		);
 
 		echo View::make('anbu::main', $data)->render();

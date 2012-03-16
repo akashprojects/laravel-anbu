@@ -64,8 +64,8 @@
 		<li><a data-anbu-tab="anbu-log" class="anbu-tab" href="#">Log <span class="anbu-count"><?php echo count($log); ?></span></a></li>
 		<li><a data-anbu-tab="anbu-watch" class="anbu-tab" href="#">Watch <span class="anbu-count"><?php echo count($watch); ?></span></a></li>
 		<li><a data-anbu-tab="anbu-sql" class="anbu-tab" href="#">SQL <span class="anbu-count"><?php echo count($sql); ?></span></a></li>
-
-
+		<li><a data-anbu-tab="anbu-memory" class="anbu-tab" href="#">Memory <span class="anbu-count"><?php echo $memory; ?></span></a></li>
+		<li><a data-anbu-tab="anbu-runtime" class="anbu-tab" href="#">Runtime <span class="anbu-count"><?php echo $runtime; ?></span></a></li>
 		<li class="anbu-tab-right"><a id="anbu-hide" href="#">&#8614;</a></li>
 		<li class="anbu-tab-right"><a id="anbu-close" href="#">&times;</a></li>
 		<li class="anbu-tab-right"><a id="anbu-zoom" href="#">&#8645;</a></li>
