@@ -114,7 +114,7 @@ class Anbu {
 	 */
 	public static function log($type, $message)
 	{
-		static::$_files_list[] = array($type, $message);
+		static::$_loglist[] = array($type, $message);
 	}
 
 	/**
