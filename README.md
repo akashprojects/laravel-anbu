@@ -12,6 +12,10 @@ Now simply add anbu to your `application/bundles.php` with auto start enabled :
 
 	return array('anbu' => array('auto' => true));
 
+Then, add the following in your front-controller file after LARAVEL_START :
+
+	define('LARAVEL_MEMORY', memory_get_usage());
+
 Finally, add Anbu to your View master template, or individual views with :
 
 	<?php Anbu::render(); ?>
@@ -49,7 +53,6 @@ Will be logged automatically as they are executed!
 If you are using jQuery in your template, you may wish to disable Anbu's included jQuery, to do this simply edit the config file at `bundles/anbu/config/display.php` and set the `include_jquery` index to false :
 
 	'include_jquery' 	=>		false,
-
 
 ---
 

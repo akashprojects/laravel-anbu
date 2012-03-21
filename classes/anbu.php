@@ -7,8 +7,8 @@
  * @copyright 2012 Dayle Rees <me@daylerees.com>
  * @license MIT License <http://www.opensource.org/licenses/mit>
  */
-class Anbu
-{
+class Anbu {
+	
 	/**
 	 * A list of attributes to watch.
 	 *
@@ -44,16 +44,43 @@ class Anbu
 	 */
 	public static function render()
 	{
-		$run_time = (microtime(true) - LARAVEL_START) * 1000;
-		static::log('info', 'Page rendered in '.number_format($run_time, 1). 'ms');
-		
+		$run_time = (microtime(true) - LARAVEL_START);
+		if(defined('LARAVEL_MEMORY'))
+		{
+			$memory   = (memory_get_peak_usage() - LARAVEL_MEMORY);
+		}
+		else
+		{
+			$memory   = memory_get_peak_usage();
+		}
+		$files    = get_included_files();
+
+		$res = array('data' => array(), 'total' => array('size' => 0, 'lines' => 0, 'count' => 0));
+		foreach ($files as $file)
+		{
+		    $size  = filesize($file);
+		    $lines = substr_count(file_get_contents($file), "\n");
+		    $res['total']['size']  += $size;
+		    $res['total']['lines'] += $lines;
+		    $res['total']['count']++;
+		    $res['data'][] = array(
+				'name'  => $file,
+				'size'  => $size,
+				'lines' => $lines,
+				'last' 	=> filemtime($file),
+		   	);
+		}
+
 		$data = array(
-			'watch' => static::$_watchlist,
-			'log'	=> static::$_loglist,
-			'sql'	=> static::$_sqllist,
-			'css'	=> File::get(Bundle::path('anbu').'public/css/style.min.css'),
-			'js'	=> File::get(Bundle::path('anbu').'public/js/script.min.js'),
-			'include_jq'	=> Config::get('anbu::display.include_jquery')
+			'watch'      => static::$_watchlist,
+			'log'        => static::$_loglist,
+			'sql'        => static::$_sqllist,
+			'memory'     => number_format($memory / 1024, 2).' kB',
+			'runtime'    => number_format($run_time, 4).' s',
+			'files'		 => $res,
+			'css'        => File::get(Bundle::path('anbu').'public/css/style.min.css'),
+			'js'         => File::get(Bundle::path('anbu').'public/js/script.min.js'),
+			'include_jq' => Config::get('anbu::display.include_jquery')
 		);
 
 		echo View::make('anbu::main', $data)->render();
@@ -88,10 +115,8 @@ class Anbu
 	}
 
 	/**
-	 * Add a log entry to the Anbu array.
+	 * Get included files and detailled information.
 	 *
-	 * @param string The type of log entry.
-	 * @param string The message.
 	 * @return void
 	 */
 	public static function log($type, $message)

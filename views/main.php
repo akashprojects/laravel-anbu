@@ -58,14 +58,36 @@
 				<?php endif; ?>
 			</div>
 
+			<div class="anbu-tab-pane anbu-table anbu-files">
+				<table>
+					<tr>
+						<th>#</th>
+						<th>File</th>
+						<th>Size</th>
+						<th>Lines</th>
+						<th>Last Modified</th>
+					</tr>
+					<?php foreach($files['data'] as $key => $file) : ?>
+					<tr>
+						<td class="anbu-table-first"><?php echo $key; ?></td>
+						<td><?php echo $file['name']; ?></td>
+						<td><?php echo number_format($file['size']).' kB'; ?></td>
+						<td><?php echo number_format($file['lines']); ?></td>
+						<td><?php echo date("Y.m.d - H:i:s", $file['last']); ?></td>
+					<?php endforeach; ?>
+					</tr>
+				</table>
+			</div>
+
 		</div>
 	</div>
 	<ul id="anbu-open-tabs" class="anbu-tabs">
 		<li><a data-anbu-tab="anbu-log" class="anbu-tab" href="#">Log <span class="anbu-count"><?php echo count($log); ?></span></a></li>
 		<li><a data-anbu-tab="anbu-watch" class="anbu-tab" href="#">Watch <span class="anbu-count"><?php echo count($watch); ?></span></a></li>
 		<li><a data-anbu-tab="anbu-sql" class="anbu-tab" href="#">SQL <span class="anbu-count"><?php echo count($sql); ?></span></a></li>
-
-
+		<li><a data-anbu-tab="anbu-files" class="anbu-tab" href="#">Files <span class="anbu-count"><?php echo $files['total']['count']; ?></span></a></li>
+		<li><a href="#">Memory <span class="anbu-count"><?php echo $memory; ?></span></a></li>
+		<li><a href="#">Runtime <span class="anbu-count"><?php echo $runtime; ?></span></a></li>
 		<li class="anbu-tab-right"><a id="anbu-hide" href="#">&#8614;</a></li>
 		<li class="anbu-tab-right"><a id="anbu-close" href="#">&times;</a></li>
 		<li class="anbu-tab-right"><a id="anbu-zoom" href="#">&#8645;</a></li>
