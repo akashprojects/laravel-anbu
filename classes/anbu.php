@@ -134,13 +134,13 @@ class Anbu {
 	 */
 	public static function sql($sql, $bindings, $time)
 	{
-		// I used this method to swap in the bindings, its very ugly
-		// will be replaced later, hopefully will find something in
-		// the core
-		foreach ($bindings as $b)
+		$pieces = explode('?', $sql);
+		$sql = '';
+
+		foreach ($pieces as $piece)
 		{
-			$count = 1;
-			$sql = str_replace('?', '`'.$b.'`', $sql,$count);
+			$sql .= $piece;
+			count($bindings) && $sql .= "'".array_shift($bindings)."'";
 		}
 
 		static::$_sqllist[] = array($sql, $time);
