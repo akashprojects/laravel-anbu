@@ -138,7 +138,7 @@ class Anbu {
 		// binding at a time.
 		foreach ($bindings as $b)
 		{
-			$sql = preg_replace('/\?/', '`'.$b.'`', $sql, 1);
+			$sql = preg_replace('/\?/', "'".$b."'", $sql, 1);
 		}
 
 		static::$_sqllist[] = array($sql, $time);
