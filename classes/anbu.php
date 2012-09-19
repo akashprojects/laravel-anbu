@@ -134,13 +134,11 @@ class Anbu {
 	 */
 	public static function sql($sql, $bindings, $time)
 	{
-		$pieces = explode('?', $sql);
-		$sql = '';
-
-		foreach ($pieces as $piece)
+		// Use preg_replace() and limit it to replace only one matched
+		// binding at a time.
+		foreach ($bindings as $b)
 		{
-			$sql .= $piece;
-			count($bindings) && $sql .= "'".array_shift($bindings)."'";
+			$sql = preg_replace('/\?/', '`'.$b.'`', $sql, 1);
 		}
 
 		static::$_sqllist[] = array($sql, $time);
